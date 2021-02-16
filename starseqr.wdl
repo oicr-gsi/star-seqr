@@ -53,6 +53,7 @@ task runSeqr {
     File   reads1
     File   reads2
     String outputFileNamePrefix
+    String modules = "star-seqr/0.6.7 hg38-star-index100/2.7.6a"
     String gencode = "$GENCODE_ROOT/gencode.v31.annotation.gtf"
     String genome = "$HG38_ROOT/hg38_random.fa"
     Int threads = 8
@@ -64,6 +65,7 @@ task runSeqr {
     inputBam: "STAR bam"
     indexBam: "STAR bam index"
     outputFileNamePrefix: "Prefix for filename"
+    modules: "modules for running star-seqr"
     threads: "Requested CPU threads"
     jobMemory: "Memory allocated for this job"
     timeout: "Hours before task timeout"
