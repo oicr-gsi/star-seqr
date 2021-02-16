@@ -7,6 +7,7 @@ workflow starseqr {
     File indexBam
     File reads1
     File reads2
+    File chimericjunction
     String outputFileNamePrefix
   }
 
@@ -15,6 +16,7 @@ workflow starseqr {
     indexBam: "Index for STAR Bam file"
     reads1: "fastq1"
     reads2: "fastq2"
+    chimericjunction: "chimeric junctions from STAR workflow"
     outputFileNamePrefix: "Prefix for filename"
   }
 
@@ -52,6 +54,7 @@ task runSeqr {
     File   indexBam
     File   reads1
     File   reads2
+    File   chimericjunction
     String outputFileNamePrefix
     String modules = "star-seqr/0.6.7 hg38-star-index100/2.7.6a"
     String gencode = "$GENCODE_ROOT/gencode.v31.annotation.gtf"
@@ -65,6 +68,7 @@ task runSeqr {
     inputBam: "STAR bam"
     indexBam: "STAR bam index"
     outputFileNamePrefix: "Prefix for filename"
+    chimericjunction: "Chimeric junctions from STAR"
     modules: "modules for running star-seqr"
     threads: "Requested CPU threads"
     jobMemory: "Memory allocated for this job"
@@ -78,6 +82,7 @@ task runSeqr {
       -1 ~{reads1} \
       -2 ~{reads2} \
       -sb ~{inputBam} \
+      -sj ~{chimericjunction} \
       -m 1 -p ~{outputFileNamePrefix} -t 1 -g ~{gencode} \
       -r ~{genome} -vv
 
