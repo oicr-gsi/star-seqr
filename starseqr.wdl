@@ -60,7 +60,7 @@ task runSeqr {
     String modules = "star-seqr/0.6.7 hg38-star-index100/2.7.6a"
     String gencode = "$GENCODE_ROOT/gencode.v31.annotation.gtf"
     String genome = "$HG38_ROOT/hg38_random.fa"
-    Int threads = 8
+    Int threads = 4
     Int jobMemory = 64
     Int timeout = 72
   }
@@ -84,7 +84,7 @@ task runSeqr {
       -2 ~{reads2} \
       -sb ~{inputBam} \
       -sj ~{chimericjunction} \
-      -m 1 -p ~{outputFileNamePrefix} -t 1 -g ~{gencode} \
+      -m 1 -p ~{outputFileNamePrefix} -t ~{threads} -g ~{gencode} \
       -r ~{genome} -vv
 
   >>>
