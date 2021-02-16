@@ -28,9 +28,9 @@ workflow starseqr {
    }
 
   output {
-    File fusionsPredictions     = runseqr.fusionPredictions
-    File fusionDiscarded        = runseqr.fusionDiscarded
-    File fusionFigure           = runseqr.fusionFigure
+    File fusionsPredictions     = runSeqr.fusionPredictions
+    File fusionDiscarded        = runSeqr.fusionDiscarded
+    File fusionFigure           = runSeqr.fusionFigure
   }
 
   meta {
