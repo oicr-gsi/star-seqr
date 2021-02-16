@@ -51,7 +51,7 @@ task runSeqr {
     File   inputBam
     File   indexBam
     File   reads1
-    Files  reads2
+    File   reads2
     String outputFileNamePrefix
     String gencode = "$GENCODE_ROOT/gencode.v31.annotation.gtf"
     String genome = "$HG38_ROOT/hg38_random.fa"
