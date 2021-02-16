@@ -26,6 +26,7 @@ workflow starseqr {
     indexBam = indexBam,
     reads1 = reads1,
     reads2 = reads2,
+    chimericjunction = chimericjunction,
     outputFileNamePrefix = outputFileNamePrefix
    }
 
